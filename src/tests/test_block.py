@@ -15,4 +15,4 @@ class TestBlockClass(TestBaseClass):
 
 
     def test_smoke_test(self):
-        assert 1 is not 1
+        assert 1 is 1, "Just Small Import Test"
