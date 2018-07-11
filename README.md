@@ -2,3 +2,15 @@
 blockchain by python3 &amp; flask 
 
 ## Block Chain example
+
+
+### install dependency 
+```
+pip install -r requireuemt/requiremets.txt
+```
+
+### run test
+```
+pytest -s -v src/
+```
+
