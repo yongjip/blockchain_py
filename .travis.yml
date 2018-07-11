@@ -4,7 +4,7 @@ python:
   - "3.6"
 
 # command to install dependencies
-#branches:
+branches:
   only:
     - master
     - dev
