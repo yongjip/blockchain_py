@@ -1,8 +1,8 @@
 """
 File: block.py
-Author: Me
-Email: yourname@email.com
-Github: https://github.com/yourname
+Author: dan
+Email: elastic7327@email.com
+Github: https://github.com/elastic7327
 Description: a block module
 """
 
@@ -41,6 +41,10 @@ class BlockChain(object):
 
     """Docstring for BlockChain. """
 
+    # difficulty of Pow algorithm
+
+    difficulty = 2
+
     def __init__(self):
         """TODO: to be defined1. """
 
@@ -50,9 +54,17 @@ class BlockChain(object):
 
     def create_genesis_block(self):
         """TODO: Docstring for create_genesis_block.
+        A function to generate genesis block and appends it to
+        the chain. the block has index 0, previous_hash as 0, and
+        a valid hash
         :returns: TODO
 
         """
         genesis_block = Block(0, [], time.time(), "0")
         genesis_block.hash = genesis_block.compute_hash()
         self.chain.append(genesis_block)
+
+    @property
+    def last_block(self):
+        """docstring for last_block"""
+        return self.chain[-1]
