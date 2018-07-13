@@ -47,5 +47,3 @@ class TestBlockClass(TestBaseClass):
         assert len(blk.chain) == 2
 
         prf = blk.proof_of_work(blk.last_block)
-
-        __import__('ipdb').set_trace()

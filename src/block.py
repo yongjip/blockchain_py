@@ -29,6 +29,7 @@ class Block:
         :returns: TODO
         해시를 생성합니다.
         """
+        print(self.__dict__)
         block_string = json.dumps(self.__dict__, sort_keys=True)
         return sha256(block_string.encode()).hexdigest()
 
