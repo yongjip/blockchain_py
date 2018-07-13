@@ -57,6 +57,8 @@ class BlockChain(object):
         """
         genesis_block = Block(0, [], time.time(), "0")
         genesis_block.hash = genesis_block.compute_hash()
+
+        print(genesis_block.hash)
         self.chain.append(genesis_block)
 
     @property
@@ -73,9 +75,13 @@ class BlockChain(object):
         block.nonce = 0
 
         computed_hash = block.compute_hash()
-        while not computed_hash.startwith('0' * BlockChain.difficulty):
-            block.nounce += 1
+
+        # 개인적으로 이 부분 코드를 보고 얼마나 블록체인이.. 컴퓨팅 파워를 낭비하는 부분인지
+        # 알 수 있습니다.
+        while not computed_hash.startswith('0' * BlockChain.difficulty):
+            block.nonce += 1
             computed_hash = block.compute_hash()
+            print(computed_hash, block.nonce)
 
         return computed_hash
 
@@ -101,4 +107,4 @@ class BlockChain(object):
         Check if block_hash is valid hash of block and satisfies
         the difficulty criteria.
         """
-        return (block_hash.startwith('0' * BlockChain.difficulty) and block_hash == block.compute_hash())
+        return (block_hash.startswith('0' * BlockChain.difficulty) and block_hash == block.compute_hash())

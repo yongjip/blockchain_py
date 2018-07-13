@@ -36,4 +36,16 @@ class TestBlockClass(TestBaseClass):
 
         assert len(blk.chain) == 2
 
+        # test get latest block
         assert blk.last_block == blk.chain[-1]
+
+    def test_create_genesis_block_and_proof_it(self):
+
+        blk = BlockChain()
+        blk.create_genesis_block()
+
+        assert len(blk.chain) == 2
+
+        prf = blk.proof_of_work(blk.last_block)
+
+        __import__('ipdb').set_trace()
